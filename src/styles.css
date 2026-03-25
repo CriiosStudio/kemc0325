@@ -1,0 +1,398 @@
+/* styles.css - 23일 최종 고도화 테마 (누락 없는 완전판) */
+:root {
+  --primary: #0284c7; /* 메인 블루 */
+  --primary-dark: #0369a1; /* 그라데이션 끝단 */
+  --primary-light: #f0f9ff; /* 카드 배경 및 호버 */
+  --accent: #38bdf8; /* 포인트 컬러 */
+  --text: #0f172a; /* 주 텍스트 */
+  --text-light: #64748b; /* 보조 텍스트 */
+  --border: #e2e8f0; /* 경계선 */
+  --bg-main: #f1f5f9; /* 전체 배경 */
+  --card: #ffffff; /* 카드 배경 */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* 모바일 뷰포트 고정 컨테이너 */
+.app-container {
+  max-width: 500px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: white;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(15, 23, 42, 0.1);
+}
+
+/* 1. 상단 배너 (강렬한 그라데이션 배경) */
+.app-header {
+  padding: 35px 20px;
+  background: linear-gradient(
+    135deg,
+    var(--primary) 0%,
+    var(--primary-dark) 100%
+  );
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.2);
+}
+
+.app-header h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.55rem;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.app-header p {
+  margin: 8px 0 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+.app-main {
+  padding: 24px 20px;
+  padding-bottom: 110px; /* 하단 네비게이션 여백 충분히 확보 */
+}
+
+/* 2. 누적 참여자 (컴팩트 캡슐형) */
+.counter-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 15px 0 25px;
+  padding: 10px 22px;
+  background: white;
+  border: 1.5px solid var(--primary);
+  border-radius: 40px;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.1);
+}
+
+.counter-icon {
+  font-size: 1.1rem;
+}
+.counter-label {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin: 0;
+  font-weight: 600;
+}
+.counter-number {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin: 0;
+}
+
+/* 3. 카드 공통 레이아웃 */
+.welcome-card,
+.info-container,
+.result-card,
+.form-group {
+  background: white;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.04);
+}
+
+.welcome-card {
+  background-color: var(--primary-light);
+  border: none;
+  text-align: left;
+}
+
+.welcome-card h3 {
+  color: var(--primary-dark);
+  margin-top: 0;
+  font-weight: 800;
+}
+
+/* 4. 입력창 및 라디오 그룹 */
+.input-field,
+.select-field {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-size: 1rem;
+  background: #f8fafc;
+  margin-top: 10px;
+  box-sizing: border-box;
+  transition: all 0.25s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: white;
+  box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.1);
+}
+
+.radio-group label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* 5. 메인 버튼 (입체 그라데이션) */
+.primary-btn {
+  width: 100%;
+  padding: 18px;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(
+    135deg,
+    var(--primary) 0%,
+    var(--primary-dark) 100%
+  );
+  color: white;
+  font-weight: 700;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.3);
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(2, 132, 199, 0.4);
+}
+
+.primary-btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* 6. 역량검사 답변 버튼 */
+.answer-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 25px;
+}
+.answer-btn {
+  padding: 18px;
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  background: white;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.answer-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--primary-light);
+  transform: translateX(4px);
+}
+
+/* 7. 진행바 (Progress) */
+.test-progress-wrapper {
+  margin-bottom: 30px;
+}
+.test-stats {
+  margin-bottom: 10px;
+  text-align: right;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.current-step {
+  color: var(--primary);
+}
+.total-steps {
+  color: var(--text-light);
+}
+.progress-bar-container {
+  width: 100%;
+  height: 10px;
+  background: #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: var(--primary);
+  transition: width 0.4s ease;
+}
+
+/* 8. 질문 카드 (인적성 검사지 느낌) */
+.question-card {
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-light);
+  border-radius: 24px;
+  margin-bottom: 30px;
+  border: 1.5px dashed var(--primary);
+  padding: 25px;
+  text-align: center;
+}
+.question-text {
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.6;
+  word-break: keep-all;
+  color: var(--text);
+}
+
+/* 9. 하단 네비게이션 (글래스모피즘 효과) */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 500px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  display: flex;
+  border-top: 1px solid var(--border);
+  z-index: 100;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.nav-item.active {
+  color: var(--primary);
+  font-weight: 700;
+}
+.nav-icon {
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+}
+.nav-label {
+  font-size: 0.8rem;
+}
+
+/* 10. 교육 강좌 아이템 */
+.course-section h4 {
+  margin: 25px 0 15px;
+  color: var(--text);
+  font-weight: 800;
+}
+.course-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  margin-bottom: 12px;
+  background-color: white;
+  transition: 0.2s;
+}
+.course-item:hover {
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+.course-btn {
+  padding: 10px 20px;
+  border: 1.5px solid var(--primary);
+  border-radius: 12px;
+  background: transparent;
+  color: var(--primary);
+  font-weight: 700;
+  cursor: pointer;
+}
+.course-btn.btn-done {
+  background: var(--primary);
+  color: white;
+}
+
+/* 11. 수료증 (프리미엄 권위감) */
+.certificate-card {
+  border: 12px double var(--primary);
+  padding: 50px 30px;
+  background: #fff;
+  position: relative;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+.certificate-card h2 {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--primary-dark);
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+}
+.cert-seal {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  width: 80px;
+  height: 80px;
+  border: 3px solid var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  font-weight: 900;
+  font-size: 0.85rem;
+  transform: rotate(-15deg);
+  background: white;
+  opacity: 0.8;
+}
+
+/* 유틸리티 */
+.mt-2 {
+  margin-top: 8px;
+}
+.mt-4 {
+  margin-top: 16px;
+}
+.mt-6 {
+  margin-top: 24px;
+}
+.result-subtitle {
+  font-size: 0.9rem;
+  color: var(--primary);
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.ai-box {
+  background: #f1f5f9;
+  padding: 20px;
+  border-radius: 16px;
+  margin: 24px 0;
+  border: 1px solid #e2e8f0;
+  text-align: left;
+}
+.ai-box h4 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: var(--text);
+}
